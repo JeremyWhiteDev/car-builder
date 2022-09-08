@@ -91,6 +91,7 @@ const orderBuilder = {};
 
 const completedOrders = [];
 
+//export getters
 export const getPaintColors = () => {
   const paintColorsCopy = paintColors.map((color) => ({ ...color }));
   return paintColorsCopy;
@@ -111,4 +112,40 @@ export const getWheels = () => {
 export const getCompletedOrders = () => {
   const completedOrdersCopy = completedOrders.map((order) => ({ ...order }));
   return completedOrdersCopy;
+};
+
+//export setters
+const addNewId = () => {
+  let getHighestId = 0;
+  if (completedOrders.length > 0) {
+    getHighestId = completedOrders.sort((a, b) => {
+      b.id - a.id;
+    })[0].id;
+  }
+  return getHighestId + 1;
+};
+
+export const setPaintColor = (id) => {
+  orderBuilder.paintId = id;
+};
+
+export const setInterior = (id) => {
+  orderBuilder.interiorId = id;
+};
+
+export const setTechnology = (id) => {
+  orderBuilder.technologyId = id;
+};
+
+export const setWheels = (id) => {
+  orderBuilder.wheelsId = id;
+};
+
+export const addOrder = () => {
+  const newOrder = { ...orderBuilder };
+  newOrder.id = addNewId();
+  newOrder.timestamp = Date.now();
+  completedOrders.push(newOrder);
+  orderBuilder = {};
+  document.dispatchEvent(new CustomEvent("stateChanged"));
 };
