@@ -14,7 +14,8 @@ const wheels = getWheels();
 
 const renderDropdown = (arr) => {
   let htmlSection = "";
-  htmlSection += `<select name="${arr[0].category}">`;
+  htmlSection += `<select name="${arr[0].category}">
+  <option id="default" value="0">Choose Your Selections</option>`;
   const listItems = arr.map((item) => {
     return `<option id="${item.category}--${item.id}" value= "${item.name}">${item.name}</option>`;
   });
@@ -27,7 +28,7 @@ const renderDropdown = (arr) => {
 const displayForm = () => {
   let htmlSection = `
   <h1>Cars 'R Us</h1>
-
+    <article class ="form">
     <div class = "selections paint">
         <h2>Paint Colors</h2>
         ${renderDropdown(paintColors)}
@@ -44,6 +45,7 @@ const displayForm = () => {
         <h2>Wheels</h2>
         ${renderDropdown(wheels)}
     </div>
+    </article>
     <div class = "submit-btn">
     <button id="submitBtn">Create Custom Order</button>
     </div>
@@ -55,3 +57,9 @@ const displayForm = () => {
   document.getElementById("builderApp").innerHTML = htmlSection;
 };
 displayForm();
+
+document.addEventListener("change", (event) => {
+  if (event.target.name === "paintColor") {
+    console.log("Hello");
+  }
+});

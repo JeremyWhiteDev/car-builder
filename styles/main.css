@@ -1,0 +1,30 @@
+#builderApp {
+    width: 80%;
+    margin: auto;
+    
+}
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.selections {
+    border: 1px dotted goldenrod;
+    width: 30%;
+    flex-basis: 40%;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    min-height: 80p;
+    box-shadow: 0 0 8px gray;
+}
+
+h1 {
+    width:100%;
+}
+.orders {
+    width: 100%;
+}
