@@ -103,9 +103,17 @@ const wheels = [
   },
 ];
 
-const orderBuilder = {};
+export let orderBuilder = {};
 
-const completedOrders = [];
+const completedOrders = [
+  {
+    id: 0,
+    paintId: 2,
+    interiorId: 1,
+    technologyId: 4,
+    wheelsId: 3,
+  },
+];
 
 //export getters
 export const getPaintColors = () => {

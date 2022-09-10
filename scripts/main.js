@@ -5,6 +5,7 @@ import {
   getWheels,
 } from "./database.js";
 
+import { renderOrders } from "./orders.js";
 //get each of these things, and then create a function that handles the HTML for each section, and then have a funtion that displays all the html for the form.
 
 const paintColors = getPaintColors();
@@ -51,15 +52,11 @@ const displayForm = () => {
     </div>
     <div class = "orders">
         <h2>Custom Orders</h2
-        Custom Orders
+        ${renderOrders()}
     </div>
 `;
   document.getElementById("builderApp").innerHTML = htmlSection;
 };
 displayForm();
 
-document.addEventListener("change", (event) => {
-  if (event.target.name === "paintColor") {
-    console.log("Hello");
-  }
-});
+document.addEventListener("stateChanged", (event) => displayForm());
